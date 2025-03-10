@@ -89,7 +89,7 @@ export default function Home() {
           />
         </div>
         <div className="text-center mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold">Welcome to Lareina's 6th Birthday Party</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold">Welcome to Lareina&apos;s 6th Birthday Party</h1>
         </div>
         <div className="flex flex-col lg:flex-row gap-8 mb-8">
           <div className="bg-gray-50 p-4 sm:p-6 rounded-lg flex-1">
@@ -122,7 +122,7 @@ export default function Home() {
 
         <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mb-8">
           <h2 className="text-lg sm:text-xl font-semibold mb-4">Event Type</h2>
-          <p>Jump, roll, and swing into an unforgettable birthday bash! Come celebrate with us as we flip into fun!" 🎂✨🎉 </p>
+          <p>Jump, roll, and swing into an unforgettable birthday bash! Come celebrate with us as we flip into fun!</p>
           <br />
           <div className="flex justify-center">
             <Image
@@ -172,9 +172,9 @@ export default function Home() {
               <>
                 <div className="flex justify-between items-center mb-4">
                   {rsvpStatus === "Yes" ? (
-                    <h2 className="text-xl font-semibold">Yay! Can’t wait to celebrate with you!</h2>
+                    <h2 className="text-xl font-semibold">Yay! Can&rsquo;t wait to celebrate with you!</h2>
                   ) : (
-                    <h2 className="text-xl font-semibold">Sorry, We’ll Miss You</h2>
+                    <h2 className="text-xl font-semibold">Sorry, We&rsquo;ll Miss You</h2>
                   )}
                   <button className="text-gray-500 hover:text-gray-700" onClick={closeModal}>×</button>
                 </div>
@@ -221,7 +221,7 @@ export default function Home() {
                     <label className="block text-sm font-medium text-gray-700">Greeting</label>
                     <textarea
                       className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                      rows="3"
+                      rows={5}
                       placeholder="Enter your greeting"
                       value={greeting}
                       onChange={(e) => setGreeting(e.target.value)}
