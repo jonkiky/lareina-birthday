@@ -138,12 +138,13 @@ export default function Home() {
           <h2 className="text-lg sm:text-xl font-semibold mb-4">Greetings</h2>
           <div className="flex flex-wrap gap-4">
           {guests.map((guest, index) => (
-          guest[3] && ( // Ensure guest[3] exists before rendering
-            <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
-              <p className="font-semibold">{guest[0]} : {guest[3]}</p>
-            </div>
-          )
-        ))}
+            guest[3]  && guest[5] == "yes" && ( // Ensure guest[3] exists and guest[5] is strictly "Yes"
+              <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
+                <p className="font-semibold">{guest[0]} : {guest[3]}</p>
+              </div>
+            )
+          ))}
+
           </div>
         </div>
       </main>
@@ -161,7 +162,7 @@ export default function Home() {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0  bg-opacity-80 backdrop-blur-sm flex justify-center items-center">
           <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
             {successMessage ? (
               <div className="text-center">
@@ -180,7 +181,7 @@ export default function Home() {
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700">Name</label>
+                    <label className="block text-sm font-medium text-gray-700">Your Name or Kids Nam * </label>
                     <input
                       type="text"
                       className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
@@ -191,7 +192,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700">Email</label>
+                    <label className="block text-sm font-medium text-gray-700">Email *</label>
                     <input
                       type="email"
                       className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
