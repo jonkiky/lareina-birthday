@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.cake-drop {
+  position: absolute;
+  top: -100px;
+  width: 30px;
+  height: 30px;
+  animation: drop 5s ease-out forwards, fadeOut 2s ease-out 2s forwards;
+}

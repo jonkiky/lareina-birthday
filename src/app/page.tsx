@@ -12,6 +12,7 @@ export default function Home() {
   const [kids, setKids] = useState("1");
   const [greeting, setGreeting] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [cakes, setCakes] = useState<JSX.Element[]>([]);
 
   const openModal = (status: string) => {
     setRsvpStatus(status);
@@ -73,8 +74,32 @@ export default function Home() {
     fetchGuests();
   }, []);
 
+  useEffect(() => {
+    const generateCakes = () => {
+      const cakesArray = [];
+      for (let i = 0; i < 50; i++) {
+        const left = `${Math.random() * 100}%`;
+        const delay = Math.random() * 2;
+        cakesArray.push(
+          <Image
+            key={i}
+            src="/birthdaycake.png"
+            alt="Birthday Cake"
+            width={50}
+            height={50}
+            className="cake-drop"
+            style={{ left: `${left}`, animationDelay: `${delay}s` }}
+          />
+        );
+      }
+      setCakes(cakesArray);
+    };
+
+    generateCakes();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gray-100 p-4 sm:p-8 relative">
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-8 relative overflow-hidden">
       <header className="flex flex-col sm:flex-row justify-between items-center py-4">
       </header>
 
@@ -140,7 +165,7 @@ export default function Home() {
           {guests.map((guest, index) => (
             guest[3]  && guest[5] == "yes" && ( // Ensure guest[3] exists and guest[5] is strictly "Yes"
               <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
-                <p className="font-semibold marquee">{guest[0]} : {guest[3]}</p>
+                <p className="font-semibold">{guest[0]} : {guest[3]}</p>
               </div>
             )
           ))}
@@ -236,22 +261,25 @@ export default function Home() {
         </div>
       )}
       <style jsx>{`
-        .marquee {
-          overflow: hidden;
-          white-space: nowrap;
-          box-sizing: border-box;
-          animation: marquee 15s linear infinite;
-        }
-
-        @keyframes marquee {
+        @keyframes drop {
           0% {
-            transform: translateX(100%);
+            top: -100px;
           }
           100% {
-            transform: translateX(-100%);
+            top: calc(200vh);
+          }
+        }
+
+        @keyframes fadeOut {
+          0% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
           }
         }
       `}</style>
+      {cakes}
     </div>
   );
 }
