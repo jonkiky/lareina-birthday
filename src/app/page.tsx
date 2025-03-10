@@ -140,7 +140,7 @@ export default function Home() {
           {guests.map((guest, index) => (
             guest[3]  && guest[5] == "yes" && ( // Ensure guest[3] exists and guest[5] is strictly "Yes"
               <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
-                <p className="font-semibold">{guest[0]} : {guest[3]}</p>
+                <p className="font-semibold marquee">{guest[0]} : {guest[3]}</p>
               </div>
             )
           ))}
@@ -235,6 +235,23 @@ export default function Home() {
           </div>
         </div>
       )}
+      <style jsx>{`
+        .marquee {
+          overflow: hidden;
+          white-space: nowrap;
+          box-sizing: border-box;
+          animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(100%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      `}</style>
     </div>
   );
 }
