@@ -211,7 +211,7 @@ export default function Home() {
               <>
                 <div className="flex justify-between items-center mb-4">
                   {rsvpStatus === "Yes" ? (
-                    <h2 className="text-xl font-semibold">Yay! Can&rsquo;t wait to celebrate with you!</h2>
+                    <h2 className="text-xl font-semibold">Can&rsquo;t Wait To Celebrate With You!</h2>
                   ) : (
                     <h2 className="text-xl font-semibold">Sorry, We&rsquo;ll Miss You</h2>
                   )}
@@ -219,7 +219,7 @@ export default function Home() {
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700">Your Name or Kids Nam * </label>
+                    <label className="block text-sm font-medium text-gray-700">Your Name or Kid's Name * </label>
                     <input
                       type="text"
                       className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
@@ -279,7 +279,7 @@ export default function Home() {
             top: -100px;
           }
           100% {
-            top: calc(200vh);
+            top: calc(150vh);
           }
         }
 
@@ -292,13 +292,6 @@ export default function Home() {
           }
         }
 
-        .cake-drop {
-          position: absolute;
-          top: -100px;
-          width: 50px;
-          height: 50px;
-          animation: drop 120s ease-out forwards, fadeOut 2s ease-out 8s forwards;
-        }
       `}</style>
       {cakes}
     </div>
