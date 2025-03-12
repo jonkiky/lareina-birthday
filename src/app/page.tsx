@@ -12,7 +12,7 @@ export default function Home() {
   const [kids, setKids] = useState("1");
   const [greeting, setGreeting] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [cakes, setCakes] = useState<JSX.Element[]>([]);
+  const [cakes, setCakes] = useState<React.ReactNode[]>([]);
 
   const openModal = (status: string) => {
     setRsvpStatus(status);
