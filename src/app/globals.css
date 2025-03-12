@@ -29,7 +29,7 @@ body {
 .cake-drop {
   position: absolute;
   top: -100px;
-  width: 30px;
-  height: 30px;
-  animation: drop 5s ease-out forwards, fadeOut 2s ease-out 2s forwards;
+  width: 50px;
+  height: 50px;
+  animation: drop 20s ease-out forwards, fadeOut 20s ease-out 20s forwards;
 }

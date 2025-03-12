@@ -77,9 +77,9 @@ export default function Home() {
   useEffect(() => {
     const generateCakes = () => {
       const cakesArray = [];
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 66; i++) {
         const left = `${Math.random() * 100}%`;
-        const delay = Math.random() * 2;
+        const delay = Math.random() * 5;
         cakesArray.push(
           <Image
             key={i}
@@ -144,7 +144,7 @@ export default function Home() {
             <p>Phone: <a href="tel:+5183605856" className="text-blue-500 hover:underline">(518) 360-5856</a></p> 
             <p>Email: <a href="mailto:lareina.kiky@gmail.com" className="text-blue-500 hover:underline">lareina.kiky@gmail.com</a></p>
         </div>
-
+   
         <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mb-8">
           <h2 className="text-lg sm:text-xl font-semibold mb-4">Event Type</h2>
           <p>Jump, roll, and swing into an unforgettable birthday bash! Come celebrate with us as we flip into fun!</p>
@@ -152,6 +152,19 @@ export default function Home() {
           <div className="flex justify-center">
             <Image
               src="/party-type.jpg"
+              alt="Birthday Party"
+              width={200}
+              height={200}
+              className="w-full max-w-xs sm:max-w-none"
+            />
+          </div>
+        </div>
+        <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mb-8">
+          <h2 className="text-lg sm:text-xl font-semibold mb-4">Thanks for coming to my birthday party!</h2>
+          <br />
+          <div className="flex justify-center">
+            <Image
+              src="/lareina.jpg"
               alt="Birthday Party"
               width={200}
               height={200}
@@ -277,6 +290,14 @@ export default function Home() {
           100% {
             opacity: 0;
           }
+        }
+
+        .cake-drop {
+          position: absolute;
+          top: -100px;
+          width: 50px;
+          height: 50px;
+          animation: drop 120s ease-out forwards, fadeOut 2s ease-out 8s forwards;
         }
       `}</style>
       {cakes}
