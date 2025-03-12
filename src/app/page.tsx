@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDirections } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
