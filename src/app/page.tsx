@@ -77,9 +77,9 @@ export default function Home() {
   useEffect(() => {
     const generateCakes = () => {
       const cakesArray = [];
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 66; i++) {
         const left = `${Math.random() * 100}%`;
-        const delay = Math.random() * 2;
+        const delay = Math.random() * 5;
         cakesArray.push(
           <Image
             key={i}
@@ -277,6 +277,14 @@ export default function Home() {
           100% {
             opacity: 0;
           }
+        }
+
+        .cake-drop {
+          position: absolute;
+          top: -100px;
+          width: 50px;
+          height: 50px;
+          animation: drop 120s ease-out forwards, fadeOut 2s ease-out 8s forwards;
         }
       `}</style>
       {cakes}
