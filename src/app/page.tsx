@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDirections } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -127,7 +129,11 @@ export default function Home() {
             <p>Dominique Dawes Gymnastics & Ninja Academy</p>
             <p>22530 Gateway Center Dr Suite 700 </p>
             <p>Clarksburg, MD 20871</p>
-            <a href="https://www.google.com/maps?q=22530+Gateway+Center+Dr+Suite+700,+Clarksburg,+MD+20871" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">View map</a>
+            <a href="https://www.google.com/maps?q=22530+Gateway+Center+Dr+Suite+700,+Clarksburg,+MD+20871" target="_blank" rel="noopener noreferrer">
+                <button className="bg-black text-white px-4 py-2 my-4 rounded hover:bg-gray-800">
+                Directions
+                </button>
+            </a>
           </div>
         </div>
         <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mb-8">
@@ -291,7 +297,6 @@ export default function Home() {
             opacity: 0;
           }
         }
-
       `}</style>
       {cakes}
     </div>
