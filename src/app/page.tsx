@@ -223,7 +223,7 @@ export default function Home() {
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700">Your Name or Kid's Name * </label>
+                    <label className="block text-sm font-medium text-gray-700">Your Name or Kid&rsquo;s Name * </label>
                     <input
                       type="text"
                       className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
