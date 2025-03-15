@@ -127,7 +127,7 @@ export default function Home() {
             <p>Dominique Dawes Gymnastics & Ninja Academy</p>
             <p>22530 Gateway Center Dr Suite 700 </p>
             <p>Clarksburg, MD 20871</p>
-            <a href="https://www.google.com/maps?q=22530+Gateway+Center+Dr+Suite+700,+Clarksburg,+MD+20871" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.google.com/maps/place/Dominique+Dawes+Gymnastics+%26+Ninja+Academy/@39.2303411,-77.2839456,600m/data=!3m2!1e3!4b1!4m6!3m5!1s0x89b62be3b33ef823:0xecd490616e25c51d!8m2!3d39.230337!4d-77.2813707!16s%2Fg%2F11j38s76lh?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
                 <button className="bg-black text-white px-4 py-2 my-4 rounded hover:bg-gray-800">
                 Directions
                 </button>
