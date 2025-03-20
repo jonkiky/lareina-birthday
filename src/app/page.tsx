@@ -180,7 +180,7 @@ export default function Home() {
           <h2 className="text-lg sm:text-xl font-semibold mb-4">Greetings</h2>
           <div className="flex flex-wrap gap-4">
           {guests.map((guest, index) => (
-            guest[3]  && guest[5] == "yes" && ( // Ensure guest[3] exists and guest[5] is strictly "Yes"
+            guest[3] && ( // Ensure guest[3] exists and guest[5] is strictly "Yes"
               <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
                 <p className="font-semibold">{guest[0]} : {guest[3]}</p>
               </div>
