@@ -179,13 +179,29 @@ export default function Home() {
         <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mb-8">
           <h2 className="text-lg sm:text-xl font-semibold mb-4">Greetings</h2>
           <div className="flex flex-wrap gap-4">
-          {guests.map((guest, index) => (
-            guest[3] && ( // Ensure guest[3] exists and guest[5] is strictly "Yes"
-              <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
-                <p className="font-semibold">{guest[0]} : {guest[3]}</p>
-              </div>
-            )
-          ))}
+          {guests.map((guest, index) => {
+  if (guest[4] === "Yes" && guest[3]) {
+    return (
+      <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
+        <p className="font-semibold">{guest[0]} : {guest[3]}</p>
+      </div>
+    );
+  } else if (guest[4] === "Yes" && !guest[3]) {
+    return (
+      <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
+        <p className="font-semibold">{guest[0]} : I will come to your party</p>
+      </div>
+    );
+  } else if (guest[4] !== "Yes" && guest[3]) {
+    return (
+      <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
+        <p className="font-semibold">{guest[0]} : {guest[3]}</p>
+      </div>
+    );
+  } else {
+    return null;
+  }
+})}
 
           </div>
         </div>
