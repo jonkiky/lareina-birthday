@@ -13,6 +13,7 @@ export default function Home() {
   const [greeting, setGreeting] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [cakes, setCakes] = useState<React.ReactNode[]>([]);
+  const [showAllGuests, setShowAllGuests] = useState(false);
 
   const openModal = (status: string) => {
     setRsvpStatus(status);
@@ -64,7 +65,7 @@ export default function Home() {
     try {
       const response = await fetch("/api/google-sheet");
       const data = await response.json();
-      setGuests(data.data.slice(1)); // Remove the header row
+      setGuests(data.data.slice(1).reverse()); // Remove the header row
     } catch (error) {
       console.error("Error fetching guests:", error);
     }
@@ -97,6 +98,8 @@ export default function Home() {
 
     generateCakes();
   }, []);
+  
+  const displayedGuests = showAllGuests ? guests : guests.slice(0, 5);
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-8 relative overflow-hidden">
@@ -179,31 +182,40 @@ export default function Home() {
         <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mb-8">
           <h2 className="text-lg sm:text-xl font-semibold mb-4">Greetings</h2>
           <div className="flex flex-wrap gap-4">
-          {guests.map((guest, index) => {
-  if (guest[4] === "Yes" && guest[3]) {
-    return (
-      <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
-        <p className="font-semibold">{guest[0]} : {guest[3]}</p>
-      </div>
-    );
-  } else if (guest[4] === "Yes" && !guest[3]) {
-    return (
-      <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
-        <p className="font-semibold">{guest[0]} : I will come to your party</p>
-      </div>
-    );
-  } else if (guest[4] !== "Yes" && guest[3]) {
-    return (
-      <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
-        <p className="font-semibold">{guest[0]} : {guest[3]}</p>
-      </div>
-    );
-  } else {
-    return null;
-  }
-})}
-
+          {displayedGuests.map((guest, index) => {
+            if (guest[4] === "Yes" && guest[3]) {
+              return (
+                <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
+                  <p className="font-semibold">{guest[0]} : {guest[3]}</p>
+                </div>
+              );
+            } else if (guest[4] === "Yes" && !guest[3]) {
+              return (
+                <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
+                  <p className="font-semibold">{guest[0]} : I will come to your party</p>
+                </div>
+              );
+            } else if (guest[4] !== "Yes" && guest[3]) {
+              return (
+                <div key={index} className="bg-white p-4 rounded-lg shadow w-full">
+                  <p className="font-semibold">{guest[0]} : {guest[3]}</p>
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
           </div>
+          {!showAllGuests && guests.length > 10 && (
+            <div className="flex justify-center mt-4">
+              <button
+                className="bg-black text-white px-4 py-2 rounded"
+                onClick={() => setShowAllGuests(true)}
+              >
+                Show More
+              </button>
+            </div>
+          )}
         </div>
       </main>
 
