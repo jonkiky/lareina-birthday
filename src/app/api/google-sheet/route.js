@@ -12,7 +12,7 @@ export async function GET() {
 
         const sheets = google.sheets({ version: "v4", auth });
 
-        const range = "Sheet1!A1:F24"; // Adjust the range as needed
+        const range = "Sheet1!A1:F34"; // Adjust the range as needed
         const response = await sheets.spreadsheets.values.get({
             spreadsheetId: sheetId,
             range: range,
